@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "286242714665",
+    "project_id": "my-park-6b559",
+    "storage_bucket": "my-park-6b559.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286242714665:android:ddab6836ab63b412129838",
+        "android_client_info": {
+          "package_name": "com.hassansapplication.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlyoHu6Da6Jpr_65Y8mzSAkfJfqQi3pCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -43,6 +43,12 @@ class NotificationScreen extends GetWidget<NotificationController> {
                   if (!snapshot.hasData) {
                     return Center(child: CircularProgressIndicator());
                   }
+                  if (snapshot.data!.docs.isEmpty) {
+                    return Center(
+                        child: Text(
+                      'Tidak ada notifikasi',
+                    ));
+                  }
                   var userDocument = snapshot.data!.docs[0];
                   bool isExpired = checkTimeValidity(userDocument['waktu']);
                   return Padding(

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'controller/hasil_one_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:hassan_s_application15/core/app_export.dart';
@@ -73,14 +75,28 @@ class HasilOneScreen extends GetWidget<HasilOneController> {
                                         textAlign: TextAlign.center,
                                         style: theme.textTheme.headlineSmall)),
                                 SizedBox(height: 18.v),
-                                Container(
-                                    width: 26.h,
-                                    margin: EdgeInsets.only(left: 81.h),
-                                    child: Text(controller.myValue.toString(),
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.center,
-                                        style: theme.textTheme.headlineSmall))
+                                StreamBuilder<DocumentSnapshot>(
+                                    stream: FirebaseFirestore.instance
+                                        .collection('parkir')
+                                        .doc('cYS4UB3hTV8KraKMNxPi')
+                                        .snapshots(),
+                                    builder: (context, snapshot) {
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                            child: CircularProgressIndicator());
+                                      }
+                                      Map<String, dynamic> data = snapshot.data!
+                                          .data() as Map<String, dynamic>;
+                                      return Container(
+                                          width: 26.h,
+                                          margin: EdgeInsets.only(left: 81.h),
+                                          child: Text("${data['ketersediaan']}",
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.center,
+                                              style: theme
+                                                  .textTheme.headlineSmall));
+                                    }),
                               ])),
                       SizedBox(height: 70.v),
                       Text("msg_reservation_success".tr,

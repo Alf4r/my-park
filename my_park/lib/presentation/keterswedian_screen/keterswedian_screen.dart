@@ -82,7 +82,7 @@ class KeterswedianScreen extends GetWidget<KeterswedianController> {
                               SizedBox(height: 18.v),
                               StreamBuilder<DocumentSnapshot>(
                                   stream: student
-                                      .doc('4FCpJPhrqgOR84wpnA9Q')
+                                      .doc('cYS4UB3hTV8KraKMNxPi')
                                       .snapshots(),
                                   builder: (context, snapshot) {
                                     Map<String, dynamic> data = snapshot.data!
@@ -131,8 +131,8 @@ class KeterswedianScreen extends GetWidget<KeterswedianController> {
                             final data = snapshot.docs.first.data();
 
                             if (data != null) {
-                              (data as Map<String, dynamic>)['ketersediaan'] -=
-                                  1;
+                              jumlahKetersediaan = (data
+                                  as Map<String, dynamic>)['ketersediaan'] -= 1;
                             }
 
                             student
@@ -149,25 +149,32 @@ class KeterswedianScreen extends GetWidget<KeterswedianController> {
 
 // Memanggil fungsi insertData()
                             await insertData(collectionPath, dataRecipt);
-
-                            onTapOK((data as Map<String, dynamic>)['ketersediaan']);
+                            print(jumlahKetersediaan);
+                            onTapOK(jumlahKetersediaan);
                           }),
-                      SizedBox(height: 5.v)
+                      SizedBox(height: 5.v),
                     ])))));
   }
 
   /// Navigates to the hasilOneScreen when the action is triggered.
   onTapOK(data) {
-    Get.toNamed(
-      AppRoutes.hasilOneScreen,arguments: data
-    );
+    Get.toNamed(AppRoutes.hasilOneScreen, arguments: data);
   }
 
   Future<void> insertData(
       String collectionPath, Map<String, dynamic> data) async {
     final firestore = FirebaseFirestore.instance;
     final user = FirebaseAuth.instance.currentUser;
-
-    await firestore.collection(collectionPath).doc(user?.uid).set(data);
+    if (user != null) {
+      final docSnapshot =
+          await firestore.collection(collectionPath).doc(user.uid).get();
+      if (docSnapshot.exists) {
+        await firestore.collection(collectionPath).doc(user.uid).update(data);
+      } else {
+        await firestore.collection(collectionPath).doc(user.uid).set(data);
+      }
+    } else {
+      await firestore.collection(collectionPath).doc(user?.uid).update(data);
+    }
   }
 }

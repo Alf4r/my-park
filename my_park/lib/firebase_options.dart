@@ -47,28 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC99KlYlpBhDUEBaoPdMxGnjBT2-iHDynI',
-    appId: '1:286242714665:web:b54d2c7da87702bd129838',
-    messagingSenderId: '286242714665',
-    projectId: 'my-park-6b559',
-    authDomain: 'my-park-6b559.firebaseapp.com',
-    storageBucket: 'my-park-6b559.appspot.com',
+    apiKey: 'AIzaSyApm355oimRLgnP2OenZVC0AvJc6VIWQVI',
+    appId: '1:993486217751:web:f7fad91d9b946cba417252',
+    messagingSenderId: '993486217751',
+    projectId: 'my-park-74736',
+    authDomain: 'my-park-74736.firebaseapp.com',
+    storageBucket: 'my-park-74736.appspot.com',
+    measurementId: 'G-81T7Z5LQZB',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAlyoHu6Da6Jpr_65Y8mzSAkfJfqQi3pCE',
-    appId: '1:286242714665:android:ddab6836ab63b412129838',
-    messagingSenderId: '286242714665',
-    projectId: 'my-park-6b559',
-    storageBucket: 'my-park-6b559.appspot.com',
+    apiKey: 'AIzaSyBIM0JcLJ3k4AAFnOYMgBBAb4-GvdEFqaM',
+    appId: '1:993486217751:android:0a773faca4744af0417252',
+    messagingSenderId: '993486217751',
+    projectId: 'my-park-74736',
+    storageBucket: 'my-park-74736.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC_S-7MsKIDm3H0IihXzUZh7V25KbOmdzQ',
-    appId: '1:286242714665:ios:f4de4e8af5bc6476129838',
-    messagingSenderId: '286242714665',
-    projectId: 'my-park-6b559',
-    storageBucket: 'my-park-6b559.appspot.com',
+    apiKey: 'AIzaSyAH8JN6PM5takZf2NqTZ2H4vqDgECmWrVE',
+    appId: '1:993486217751:ios:ee6015ec85cf3cfb417252',
+    messagingSenderId: '993486217751',
+    projectId: 'my-park-74736',
+    storageBucket: 'my-park-74736.appspot.com',
     iosBundleId: 'com.hassansapplication.app',
   );
 }
